@@ -152,35 +152,62 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-swift闭包" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/29/hello-world/">Hello World</a>
+      <a class="article-title" href="/2017/08/29/swift闭包/">swift闭包</a>
     </h1>
   
 
         
-        <a href="/2017/08/29/hello-world/" class="archive-article-date">
-  	<time datetime="2017-08-29T06:36:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-29</time>
+        <a href="/2017/08/29/swift闭包/" class="archive-article-date">
+  	<time datetime="2017-08-29T08:57:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-29</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <h2 id="什么是逃逸和非逃逸闭包"><a href="#什么是逃逸和非逃逸闭包" class="headerlink" title="什么是逃逸和非逃逸闭包"></a>什么是逃逸和非逃逸闭包</h2><ul>
+<li><p>闭包做为函数的参数传递时，可能会在函数体结束后被调用，我们就说这个闭包逃离了这个函数体的作用域，那么我们就说这个闭包是逃逸型的闭包使用@escaping来标注，从Swift3.0后闭包如果没有显示声明成逃逸型闭包，那么它就是非逃逸型的闭包。下面我们通过例子来看一下这些晦涩难懂的概念吧</p>
+</li>
+<li><p>我们使用类别名创建个闭包</p>
+</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">typealias</span> <span class="type">CompletionHandle</span> = () -&gt; <span class="type">Void</span></div></pre></td></tr></table></figure>
+<ul>
+<li>编译器报错了，说逃逸闭包只能当做函数的参数,声明非逃逸闭包在新版本的中被废弃了。这就是刚才我们所说的默认是非逃逸闭包不用显示声明出来</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/1767327-fb89bd21dcde32d4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="1.png"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1767327-a4719273c18f259c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="QQ20170316-102039@2x.png"></p>
+<h3 id="用列子说话"><a href="#用列子说话" class="headerlink" title="用列子说话"></a>用列子说话</h3><ul>
+<li>上次我们讨论了sorted函数，接下来我们自己来写一个sorted函数，我们先看一下苹果sorted函数,没有声明成逃逸闭包，那它就是非逃逸闭包</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/1767327-1753b6ca8c9d4af9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="QQ20170316-103427@2x.png"></p>
+<ul>
+<li>我们思考一下如何实现一个sorted函数，是不是每两个元素都要进行比较，那我们就使用冒泡排序算法去实现我们自己的排序算法</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="class"><span class="keyword">extension</span> <span class="title">Array</span> </span>&#123;</div><div class="line">    <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">sortedDatas</span><span class="params">(by: <span class="params">(Element, Element)</span></span></span> -&gt; <span class="type">Bool</span>) -&gt; [<span class="type">Element</span>] &#123;</div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">0</span>...<span class="keyword">self</span>.<span class="built_in">count</span> - <span class="number">1</span> &#123;</div><div class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> i...<span class="keyword">self</span>.<span class="built_in">count</span> - <span class="number">1</span> &#123;</div><div class="line">                <span class="keyword">if</span> by(<span class="keyword">self</span>[i], <span class="keyword">self</span>[j]) &#123; <span class="comment">//如果比较条件成立，交换两个元素位置</span></div><div class="line"><span class="comment">//                    let tem = self[i]</span></div><div class="line"><span class="comment">//                    self[i] = self[j]</span></div><div class="line"><span class="comment">//                    self[j] = tem</span></div><div class="line">                    (<span class="keyword">self</span>[i], <span class="keyword">self</span>[j]) = (<span class="keyword">self</span>[j], <span class="keyword">self</span>[i]) <span class="comment">//使用元组进行优化</span></div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">self</span></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">var</span> datas = [<span class="string">"5"</span>,<span class="string">"9"</span>,<span class="string">"6"</span>,<span class="string">"3"</span>,<span class="string">"2"</span>]</div><div class="line"><span class="keyword">let</span> sortedDatas = datas.sortedDatas &#123; (argc1, argc2) -&gt; <span class="type">Bool</span> <span class="keyword">in</span></div><div class="line">    <span class="keyword">return</span> argc1 &gt; argc2</div><div class="line">&#125;</div><div class="line"><span class="built_in">print</span>(sortedDatas)</div></pre></td></tr></table></figure>
+<ul>
+<li>好了到此我们完成了自己的排序算法，可能有的人对里面的 mutating不太理解为什么函数前要加这个关键字呐，因为Swift中的Array是结构体不是类，而我们在这个函数中修改了这个结构体里面的元素，所以要将这个函数声明成mutating。 Element这个是泛型。你可以点进sorted函数，看下它的声明。我们看看有没有可以优化的地方，给大家个思路使用元组优化。说了这么多好像没入正题，在sortedDatas函数内，我们的闭包是不是在函数return之前就执行了。对了，这就是非逃逸闭包。</li>
+</ul>
+<h3 id="那什么是逃逸闭包哪。"><a href="#那什么是逃逸闭包哪。" class="headerlink" title="那什么是逃逸闭包哪。"></a>那什么是逃逸闭包哪。</h3><ul>
+<li>用例子说话，我们通常是在网络请求成功之后去刷新界面，对这就用到了我们的逃逸闭包。加入我们现在有一个网络管理类有一个获取用户信息的网络请求</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">NetworkManger</span> </span>&#123;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">getUserInfo</span><span class="params">(phone: String?, success:@escaping <span class="params">(<span class="params">()</span></span></span></span> -&gt; <span class="type">Void</span>), failure: ((<span class="number">_</span> errorMessage: <span class="type">String</span>) -&gt; <span class="type">Void</span>)) &#123;</div><div class="line">        <span class="built_in">print</span>(<span class="string">"函数开始执行"</span>)</div><div class="line">        <span class="keyword">guard</span> <span class="keyword">let</span> <span class="number">_</span> = phone <span class="keyword">else</span> &#123;</div><div class="line">            <span class="built_in">print</span>(<span class="string">"执行了failure闭包"</span>)</div><div class="line">            failure(<span class="string">"电话号码不能为空"</span>)</div><div class="line">            <span class="keyword">return</span></div><div class="line">        &#125;</div><div class="line">        <span class="comment">//用来模拟网络请求</span></div><div class="line">        <span class="keyword">let</span> dataTask = <span class="type">URLSession</span>.shared.dataTask(with: <span class="type">URL</span>.<span class="keyword">init</span>(string: <span class="string">"www.baidu.com"</span>)!) &#123; (data, responmse, <span class="literal">nil</span>) <span class="keyword">in</span></div><div class="line">            <span class="built_in">print</span>(<span class="string">"执行了success闭包"</span>)</div><div class="line">            success()</div><div class="line">        &#125;</div><div class="line">        dataTask.resume()</div><div class="line">        <span class="built_in">print</span>(<span class="string">"函数执行结束"</span>)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> netManger = <span class="type">NetworkManger</span>()</div><div class="line">netManger.getUserInfo(phone: <span class="string">"123456"</span>, success: &#123;</div><div class="line">    <span class="built_in">print</span>(<span class="string">"刷新你的界面"</span>)</div><div class="line">&#125;) &#123; (errorMessage) <span class="keyword">in</span></div><div class="line">    <span class="built_in">print</span>(errorMessage)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>来分析一下我们的列子，我们写了两个闭包，逃逸和非逃逸的。failure会在phone号码为空的时候触发，这个时候函数体未执行完毕，而success闭包是在一个异步线程中，我们知道异步是不会阻塞当前线程的，那么当异步线程执行完毕后，我们才调用了success闭包，此时函数体已经执行完毕了。我们可以通过log看一下是不是这样的</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/1767327-6ed3803fca2eb0ae.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="QQ20170316-124043@2x.png"></p>
+<ul>
+<li>好了到此你明白逃逸闭包和非逃逸闭包吗? 下篇文章我们会了解一下尾随闭包，先不多说了，老大让我敲代码了。下期在见。欢迎加我个人微信和我交流，也可容易打赏一个棒棒糖的钱哦。</li>
+</ul>
+<p><a href="http://www.jianshu.com/p/e22c7fa35c24" target="_blank" rel="external">下节传送门</a></p>
+<p>喜欢楼主的关注一下毕竟第一次写博客。欢迎加我微信一起探讨技术。<br><img src="http://upload-images.jianshu.io/upload_images/1767327-3e6fc4982510a717.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="IMG_2097.JPG"></p>
 
       
 
@@ -189,11 +216,22 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">swift</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/29/hello-world/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/08/29/swift闭包/">展开全文 >></a>
         </p>
       
 
@@ -306,6 +344,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">swift</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>

@@ -6,19 +6,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | 张义飞的个人博客</title>
+  <title>swift闭包 | 张义飞的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="喜欢钻研，热衷开发">
-<meta name="keywords" content="ios开发，ios逆向开发，前端开发">
-<meta property="og:type" content="website">
-<meta property="og:title" content="张义飞的个人博客">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="什么是逃逸和非逃逸闭包 闭包做为函数的参数传递时，可能会在函数体结束后被调用，我们就说这个闭包逃离了这个函数体的作用域，那么我们就说这个闭包是逃逸型的闭包使用@escaping来标注，从Swift3.0后闭包如果没有显示声明成逃逸型闭包，那么它就是非逃逸型的闭包。下面我们通过例子来看一下这些晦涩难懂的概念吧  我们使用类别名创建个闭包   1typealias CompletionHandle =">
+<meta name="keywords" content="swift">
+<meta property="og:type" content="article">
+<meta property="og:title" content="swift闭包">
+<meta property="og:url" content="http://yoursite.com/2017/08/29/swift闭包/index.html">
 <meta property="og:site_name" content="张义飞的个人博客">
-<meta property="og:description" content="喜欢钻研，热衷开发">
+<meta property="og:description" content="什么是逃逸和非逃逸闭包 闭包做为函数的参数传递时，可能会在函数体结束后被调用，我们就说这个闭包逃离了这个函数体的作用域，那么我们就说这个闭包是逃逸型的闭包使用@escaping来标注，从Swift3.0后闭包如果没有显示声明成逃逸型闭包，那么它就是非逃逸型的闭包。下面我们通过例子来看一下这些晦涩难懂的概念吧  我们使用类别名创建个闭包   1typealias CompletionHandle =">
 <meta property="og:locale" content="15737937865@163.com">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1767327-fb89bd21dcde32d4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1767327-a4719273c18f259c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1767327-1753b6ca8c9d4af9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1767327-6ed3803fca2eb0ae.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1767327-3e6fc4982510a717.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-08-29T08:59:05.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="张义飞的个人博客">
-<meta name="twitter:description" content="喜欢钻研，热衷开发">
+<meta name="twitter:title" content="swift闭包">
+<meta name="twitter:description" content="什么是逃逸和非逃逸闭包 闭包做为函数的参数传递时，可能会在函数体结束后被调用，我们就说这个闭包逃离了这个函数体的作用域，那么我们就说这个闭包是逃逸型的闭包使用@escaping来标注，从Swift3.0后闭包如果没有显示声明成逃逸型闭包，那么它就是非逃逸型的闭包。下面我们通过例子来看一下这些晦涩难懂的概念吧  我们使用类别名创建个闭包   1typealias CompletionHandle =">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1767327-fb89bd21dcde32d4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternative" href="/atom.xml" title="张义飞的个人博客" type="application/atom+xml">
   
@@ -150,36 +157,96 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-swift闭包" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/29/swift闭包/" class="archive-article-date">
-  	<time datetime="2017-08-29T08:57:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-29</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/29/swift闭包/">swift闭包</a>
+    <h1 class="article-title" itemprop="name">
+      swift闭包
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/08/29/swift闭包/" class="archive-article-date">
+  	<time datetime="2017-08-29T08:57:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="什么是逃逸和非逃逸闭包"><a href="#什么是逃逸和非逃逸闭包" class="headerlink" title="什么是逃逸和非逃逸闭包"></a>什么是逃逸和非逃逸闭包</h2><ul>
+<li><p>闭包做为函数的参数传递时，可能会在函数体结束后被调用，我们就说这个闭包逃离了这个函数体的作用域，那么我们就说这个闭包是逃逸型的闭包使用@escaping来标注，从Swift3.0后闭包如果没有显示声明成逃逸型闭包，那么它就是非逃逸型的闭包。下面我们通过例子来看一下这些晦涩难懂的概念吧</p>
+</li>
+<li><p>我们使用类别名创建个闭包</p>
+</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">typealias</span> <span class="type">CompletionHandle</span> = () -&gt; <span class="type">Void</span></div></pre></td></tr></table></figure>
+<ul>
+<li>编译器报错了，说逃逸闭包只能当做函数的参数,声明非逃逸闭包在新版本的中被废弃了。这就是刚才我们所说的默认是非逃逸闭包不用显示声明出来</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/1767327-fb89bd21dcde32d4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="1.png"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1767327-a4719273c18f259c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="QQ20170316-102039@2x.png"></p>
+<h3 id="用列子说话"><a href="#用列子说话" class="headerlink" title="用列子说话"></a>用列子说话</h3><ul>
+<li>上次我们讨论了sorted函数，接下来我们自己来写一个sorted函数，我们先看一下苹果sorted函数,没有声明成逃逸闭包，那它就是非逃逸闭包</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/1767327-1753b6ca8c9d4af9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="QQ20170316-103427@2x.png"></p>
+<ul>
+<li>我们思考一下如何实现一个sorted函数，是不是每两个元素都要进行比较，那我们就使用冒泡排序算法去实现我们自己的排序算法</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="class"><span class="keyword">extension</span> <span class="title">Array</span> </span>&#123;</div><div class="line">    <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">sortedDatas</span><span class="params">(by: <span class="params">(Element, Element)</span></span></span> -&gt; <span class="type">Bool</span>) -&gt; [<span class="type">Element</span>] &#123;</div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">0</span>...<span class="keyword">self</span>.<span class="built_in">count</span> - <span class="number">1</span> &#123;</div><div class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> i...<span class="keyword">self</span>.<span class="built_in">count</span> - <span class="number">1</span> &#123;</div><div class="line">                <span class="keyword">if</span> by(<span class="keyword">self</span>[i], <span class="keyword">self</span>[j]) &#123; <span class="comment">//如果比较条件成立，交换两个元素位置</span></div><div class="line"><span class="comment">//                    let tem = self[i]</span></div><div class="line"><span class="comment">//                    self[i] = self[j]</span></div><div class="line"><span class="comment">//                    self[j] = tem</span></div><div class="line">                    (<span class="keyword">self</span>[i], <span class="keyword">self</span>[j]) = (<span class="keyword">self</span>[j], <span class="keyword">self</span>[i]) <span class="comment">//使用元组进行优化</span></div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">self</span></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">var</span> datas = [<span class="string">"5"</span>,<span class="string">"9"</span>,<span class="string">"6"</span>,<span class="string">"3"</span>,<span class="string">"2"</span>]</div><div class="line"><span class="keyword">let</span> sortedDatas = datas.sortedDatas &#123; (argc1, argc2) -&gt; <span class="type">Bool</span> <span class="keyword">in</span></div><div class="line">    <span class="keyword">return</span> argc1 &gt; argc2</div><div class="line">&#125;</div><div class="line"><span class="built_in">print</span>(sortedDatas)</div></pre></td></tr></table></figure>
+<ul>
+<li>好了到此我们完成了自己的排序算法，可能有的人对里面的 mutating不太理解为什么函数前要加这个关键字呐，因为Swift中的Array是结构体不是类，而我们在这个函数中修改了这个结构体里面的元素，所以要将这个函数声明成mutating。 Element这个是泛型。你可以点进sorted函数，看下它的声明。我们看看有没有可以优化的地方，给大家个思路使用元组优化。说了这么多好像没入正题，在sortedDatas函数内，我们的闭包是不是在函数return之前就执行了。对了，这就是非逃逸闭包。</li>
+</ul>
+<h3 id="那什么是逃逸闭包哪。"><a href="#那什么是逃逸闭包哪。" class="headerlink" title="那什么是逃逸闭包哪。"></a>那什么是逃逸闭包哪。</h3><ul>
+<li>用例子说话，我们通常是在网络请求成功之后去刷新界面，对这就用到了我们的逃逸闭包。加入我们现在有一个网络管理类有一个获取用户信息的网络请求</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">NetworkManger</span> </span>&#123;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">getUserInfo</span><span class="params">(phone: String?, success:@escaping <span class="params">(<span class="params">()</span></span></span></span> -&gt; <span class="type">Void</span>), failure: ((<span class="number">_</span> errorMessage: <span class="type">String</span>) -&gt; <span class="type">Void</span>)) &#123;</div><div class="line">        <span class="built_in">print</span>(<span class="string">"函数开始执行"</span>)</div><div class="line">        <span class="keyword">guard</span> <span class="keyword">let</span> <span class="number">_</span> = phone <span class="keyword">else</span> &#123;</div><div class="line">            <span class="built_in">print</span>(<span class="string">"执行了failure闭包"</span>)</div><div class="line">            failure(<span class="string">"电话号码不能为空"</span>)</div><div class="line">            <span class="keyword">return</span></div><div class="line">        &#125;</div><div class="line">        <span class="comment">//用来模拟网络请求</span></div><div class="line">        <span class="keyword">let</span> dataTask = <span class="type">URLSession</span>.shared.dataTask(with: <span class="type">URL</span>.<span class="keyword">init</span>(string: <span class="string">"www.baidu.com"</span>)!) &#123; (data, responmse, <span class="literal">nil</span>) <span class="keyword">in</span></div><div class="line">            <span class="built_in">print</span>(<span class="string">"执行了success闭包"</span>)</div><div class="line">            success()</div><div class="line">        &#125;</div><div class="line">        dataTask.resume()</div><div class="line">        <span class="built_in">print</span>(<span class="string">"函数执行结束"</span>)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> netManger = <span class="type">NetworkManger</span>()</div><div class="line">netManger.getUserInfo(phone: <span class="string">"123456"</span>, success: &#123;</div><div class="line">    <span class="built_in">print</span>(<span class="string">"刷新你的界面"</span>)</div><div class="line">&#125;) &#123; (errorMessage) <span class="keyword">in</span></div><div class="line">    <span class="built_in">print</span>(errorMessage)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>来分析一下我们的列子，我们写了两个闭包，逃逸和非逃逸的。failure会在phone号码为空的时候触发，这个时候函数体未执行完毕，而success闭包是在一个异步线程中，我们知道异步是不会阻塞当前线程的，那么当异步线程执行完毕后，我们才调用了success闭包，此时函数体已经执行完毕了。我们可以通过log看一下是不是这样的</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/1767327-6ed3803fca2eb0ae.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="QQ20170316-124043@2x.png"></p>
+<ul>
+<li>好了到此你明白逃逸闭包和非逃逸闭包吗? 下篇文章我们会了解一下尾随闭包，先不多说了，老大让我敲代码了。下期在见。欢迎加我个人微信和我交流，也可容易打赏一个棒棒糖的钱哦。</li>
+</ul>
+<p><a href="http://www.jianshu.com/p/e22c7fa35c24" target="_blank" rel="external">下节传送门</a></p>
+<p>喜欢楼主的关注一下毕竟第一次写博客。欢迎加我微信一起探讨技术。<br><img src="http://upload-images.jianshu.io/upload_images/1767327-3e6fc4982510a717.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="IMG_2097.JPG"></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://upload-images.jianshu.io/upload_images/1767327-dc8918587c98f26c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -191,19 +258,125 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/08/29/swift闭包/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-  
-    </div></section>
+
   
 
-    
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="swift闭包" data-title="swift闭包" data-url="http://yoursite.com/2017/08/29/swift闭包/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+  
+  
+  
+  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: "http://yoursite.com/2017/08/29/swift闭包/", 
+    sourceId: "swift闭包",
+    productKey: "85a3e5ed8205bb02a5a95b532a6959fc",
+    target: "cloud-tie-wrapper"
+  };
+</script>
+<script src="//img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+  
+
+  
+
+  
 
 
           </div>
@@ -226,8 +399,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
